@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import GroupButton from "./components/buttons";
+import "bootstrap/dist/css/bootstrap.min.css";
+import HeadGame from "./components/headGame";
+import InputAnswer from "./components/inputAnswer";
+import NewWord from "./components/newWord";
+import ScoreModal from "./components/modalResult";
+import { useSelector, useDispatch } from "react-redux";
+import { setWords } from "./actions/words";
+import { useEffect } from "react";
+import axios from "axios";
+import {setWord} from "./actions/word"
 
 function App() {
+  const words = useSelector((state) => state.words)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    axios.get("https://randword.vercel.app/words?num=10").then((response) => {
+      dispatch(setWords(response.data));
+    });
+    dispatch(setWord(words))
+  }, []);
+
+  console.log(words);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="container-sm pb-3 rounded mt-2"
+      style={{ maxWidth: "450px", backgroundColor: "#5b49ab" }}
+    >
+      <HeadGame />
+      <div className="body mt-3 ">
+        <InputAnswer />
+        <GroupButton />
+        <NewWord />
+        <ScoreModal />
+      </div>
     </div>
   );
 }

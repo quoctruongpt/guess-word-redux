@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  "A B C D E"
+  "F G H I J"
+  "K L M N O"
+  "P Q R S T"
+  "U V W X Y"
+  "Z"
+  ;
+}
+
+.padButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.padButton:hover {
+  border: 1px solid white;
+  color: rgb(204, 46, 46);
+}
+
+@keyframes borderr {
+  from {border: 2px solid green;}
+  to {border: 2px solid rgb(91, 88, 214);}
+}
+
+@keyframes border2 {
+  from {border: 2px solid red;}
+  to {border: 2px solid rgb(45, 209, 23);}
+}
