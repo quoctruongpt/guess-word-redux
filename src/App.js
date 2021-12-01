@@ -16,12 +16,12 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     axios.get("https://randword.vercel.app/words?num=10").then((response) => {
+      dispatch(setWord(response.data));
       dispatch(setWords(response.data));
     });
-    dispatch(setWord(words))
+    // return dispatch(setWord(words));
   }, []);
-
-  console.log(words);
+  
   return (
     <div
       className="container-sm pb-3 rounded mt-2"

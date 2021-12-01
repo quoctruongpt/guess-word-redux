@@ -15,6 +15,7 @@ export default function HeadGame() {
   const word = useSelector((state) => state.word);
   const status = useSelector((state) => state.status);
   const dispatch = useDispatch();
+  const words = useSelector((state) => state.words)
 
   useEffect(() => {
     if (timer === 0) {
@@ -23,7 +24,7 @@ export default function HeadGame() {
         setTimeout(() => {
           dispatch(setTimer(10));
           dispatch(incrementNumber());
-          dispatch(setWord());
+          dispatch(setWord(words));
           dispatch(setStatus(0));
         }, 1500);
       }
@@ -46,7 +47,7 @@ export default function HeadGame() {
       setTimeout(() => {
         dispatch(setTimer(10));
         dispatch(incrementNumber());
-        dispatch(setWord());
+        dispatch(setWord(words));
         dispatch(setStatus(0));
       }, 1500);
       return;

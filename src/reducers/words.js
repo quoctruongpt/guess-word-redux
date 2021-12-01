@@ -1,4 +1,4 @@
-const wordsReducer = (state=[], action) => {
+const wordsReducer = (state =[], action) => {
     switch (action.type) {
         case "SET_WORDS":
             return action.data

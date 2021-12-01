@@ -1,4 +1,4 @@
-const newWordReducer = (state = "___", action) => {
+const newWordReducer = (state = "", action) => {
   switch (action.type) {
     case "SET_NEW_WORD":
       const arr = action.payload.split("");
